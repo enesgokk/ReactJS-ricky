@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-export async function getAllPosts() {
+export async function getAllEpisode() {
   try {
     const { data } = await axios.get(
       `${process.env.REACT_APP_BASEURL}/api/episode`
@@ -11,6 +11,18 @@ export async function getAllPosts() {
     console.error(error);
   }
 }
+
+export async function getEpisodeDetail(id) {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BASEURL}/api/episode/${id}`
+      );
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 export async function deletePost(postId) {
   await axios
@@ -49,4 +61,4 @@ export async function updatePost(postId, title, body, userId) {
     });
 }
 
-export default { getAllPosts, deletePost, updatePost };
+export default { getAllEpisode,getEpisodeDetail,deletePost,updatePost };

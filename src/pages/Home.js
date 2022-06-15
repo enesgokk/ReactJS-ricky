@@ -1,16 +1,16 @@
 import React,{useState,useEffect} from 'react'
 import HomeComponent from '../components/Home/HomeComponent'
-import { getAllPosts } from '../services/services';
+import { getAllEpisode } from '../services/services';
 
 const Home = () => {
 
     const [allEpisodes,setAllEpisodes]=useState();
 
     useEffect(() => {
-        async function getPosts() {
-            setAllEpisodes((await getAllPosts()))
+        async function fetchPosts() {
+            setAllEpisodes((await getAllEpisode()))
         }
-        getPosts();
+        fetchPosts();
     }, [])
 
   return (
