@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import EpisodeDetail from './pages/EpisodeDetail';
+import CharacterDetail from './pages/CharacterDetail';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +19,7 @@ root.render(
     <Routes>
       <Route index path="/" element={<Home />} />
       <Route path='/detail/:id/' element={<EpisodeDetail />} />
+      <Route path='/character/:id/' element={<CharacterDetail />} />
     </Routes>
   </BrowserRouter>
 );
