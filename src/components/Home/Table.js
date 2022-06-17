@@ -1,14 +1,14 @@
 import React from 'react'
+import dateFormat, { masks } from "dateformat";
 import { Link } from 'react-router-dom'
-import dateFormat from "dateformat";
 
 const Table = ({ allEpisodes }) => {
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" className="px-6 py-3">
+                    <tr role={"row"}>
+                        <th data-testid="name" scope="col" className="px-6 py-3">
                             Name
                         </th>
                         <th scope="col" className="px-6 py-3">
@@ -17,7 +17,7 @@ const Table = ({ allEpisodes }) => {
                         <th scope="col" className="px-6 py-3">
                             Air Date
                         </th>
-                        <th scope="col" className="px-6 py-3">
+                        <th data-testid="creation" scope="col" className="px-6 py-3">
                             Creation Date
                         </th>
                     </tr>
@@ -39,7 +39,7 @@ const Table = ({ allEpisodes }) => {
                                 {episode.air_date}
                             </td>
                             <td className="px-6 py-4">
-                                {dateFormat(episode.created,"mm/dd/yyyy h:MM:ss TT") }
+                                {dateFormat (episode.created,"mm/dd/yyyy h:MM:ss TT") }
                             </td>
                         </tr>
                     </tbody>

@@ -34,9 +34,9 @@ const DetailComponent = ({ episodeDetail, character, id }) => {
             <div>
                 <h1 className='text-center text-4xl p-2' >EPISODE {id} DETAIL</h1>
                 <ul className=' flex flex-col items-center mx-auto w-64'>
-                    <li className='text-left w-full list-disc' > <span className='font-semibold'>Episode:</span> {episodeDetail.episode}</li>
-                    <li className='w-full list-disc' > <span className='font-semibold'>Name: </span>{episodeDetail.name} </li>
-                    <li className='w-full list-disc' > <span className='font-semibold'>Date: </span> {episodeDetail.air_date}</li>
+                    <li className='text-left w-full list-disc' > <span className='font-semibold'>Episode:</span> {episodeDetail?.episode}</li>
+                    <li className='w-full list-disc' > <span className='font-semibold'>Name: </span>{episodeDetail?.name} </li>
+                    <li className='w-full list-disc' > <span className='font-semibold'>Date: </span> {episodeDetail?.air_date}</li>
                 </ul>
             </div>
             
@@ -45,7 +45,7 @@ const DetailComponent = ({ episodeDetail, character, id }) => {
                 <div className='flex items-center'>
                     <div className='pt-2 mr-2'>
                         <label className='pr-2' htmlFor="">Search:</label>
-                        <input className='border rounded-lg p-2' type="text" placeholder='Search characters...' onChange={handleOnChange} />
+                        <input data-testid="searchInput" className='border rounded-lg p-2' type="text" placeholder='Search characters...' onChange={handleOnChange} />
                     </div>
                     <div>
                         <label htmlFor="select">Filter by: </label>
@@ -65,7 +65,7 @@ const DetailComponent = ({ episodeDetail, character, id }) => {
                         <div className='pt-2' >{person.name}</div>
                     </Link>
                 )
-                : <div className='text-center h-full items-center'>Loading...</div>
+                : <div data-testid="loading" className='text-center h-full items-center'>Loading...</div>
             }
 
         </div>
